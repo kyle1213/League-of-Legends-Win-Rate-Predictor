@@ -67,10 +67,10 @@ model.add(BatchNormalization())
 
 model.add(Dense(2, activation = 'softmax'))
 
-rmsprop = optimizers.RMSprop(lr = 0.005)
+rmsprop = optimizers.RMSprop(lr = 0.001)
 model.compile(optimizer = rmsprop, loss = 'binary_crossentropy', metrics = ['accuracy'])
     
-model.fit(x_train, y_train, epochs = 30, batch_size = 256)
+model.fit(x_train, y_train, epochs = 50, batch_size = 512)
 
 
 model.save('model.h5')
