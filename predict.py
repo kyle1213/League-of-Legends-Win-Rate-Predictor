@@ -8,7 +8,7 @@ loaded_model = tf.keras.models.load_model('model.h5', custom_objects = {'KerasLa
 print("loaded model and weights")
 loaded_model.compile(loss = 'binary_crossentropy', optimizer = 'rmsprop', metrics = ['accuracy'])
 
-#data preprocessing
+# data preprocessing
 #data = [ 53, 32, 57, 72, 142, 145, 56, 129, 61, 135 ] #0
 #data = [ 90, 55, 88, 121, 151, 102, 60, 38, 61, 78 ] #0
 #data = [ 8, 60, 129, 72, 93, 115, 95, 105, 121, 135 ] #1
