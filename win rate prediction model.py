@@ -32,6 +32,7 @@ for i in range(len(json_data)):
 
 y_train = np.array(y_train)
 
+
 class Dataset(torch.utils.data.Dataset):
     def __init__(self, _x_train, _y_train):
         self.features = _x_train
