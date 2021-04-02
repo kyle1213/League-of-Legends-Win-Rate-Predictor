@@ -30,6 +30,8 @@ for i in range(len(json_data)):
 
 y_train = np.array(y_train)
 
+
+
 print(y_train)
 
 

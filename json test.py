@@ -18,7 +18,7 @@ for i in range(len(json_data)):
 x_train = np.array(x_train)
 y_train = np.array(y_train)
 
-x_train = x_train/1000
+x_train = x_train
 
 print(x_train)
 print(y_train)

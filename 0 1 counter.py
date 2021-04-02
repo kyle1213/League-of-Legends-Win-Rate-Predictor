@@ -8,8 +8,8 @@ with open('.\data\output2.json') as json_file:
     for item in json_data:
         if(item['array'][10] == 0):
             a = a + 1
-        if(item['array'][0] == 1000):
-            if(type(item['array'][0]) != int):
-                c = c + 1
+        if(item['array'][10] == 1):
+            b = b + 1
 print(a)
-print(c)
+print(b)
+print(a+b)
