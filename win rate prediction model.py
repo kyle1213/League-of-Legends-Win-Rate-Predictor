@@ -88,7 +88,7 @@ class LOL(nn.Module):
         self.matrix_weight_1 = torch.nn.Parameter(torch.randn(5, 1).cuda())
         self.matrix_weight_2 = torch.nn.Parameter(torch.randn(2, 1).cuda())
         #use torch.bmm
-        self.layer1 = nn.Sequential(nn.Linear(17, 128),
+        self.layer1 = nn.Sequential(nn.Linear(10, 128),
                                     nn.ReLU(),
                                     nn.Dropout(),
                                     nn.BatchNorm1d(128),
@@ -122,10 +122,17 @@ class LOL(nn.Module):
         reshaped_x_1 = torch.matmul(x, self.matrix_weight_1)
         tmp_x = torch.transpose(x, 2, 1)
         reshaped_x_2 = torch.matmul(tmp_x, self.matrix_weight_2)
+        reshaped_x_2 = torch.transpose(reshaped_x_2, 2, 1)
+        x_1 = x * reshaped_x_1
+        x_2 = x * reshaped_x_2
+        x = x_1 + x_2
+        x = torch.reshape(x, [-1, 10])
+        """
         x = torch.reshape(x, [-1, 10])
         reshaped_x_1 = torch.squeeze(reshaped_x_1)
         reshaped_x_2 = torch.squeeze(reshaped_x_2)
         x = torch.cat((x, reshaped_x_1, reshaped_x_2), dim=1)
+        """
         x = self.layer1(x)
         return x
 
@@ -159,7 +166,6 @@ for epoch in range(1000):
         scheduler.step()
         prediction = hypo.data.max(1)[1]
         correct += prediction.eq(y.data.max(1)[1]).sum()
-
     print("Epoch : {:>4} / cost : {:>.9}".format(epoch + 1, cost))
     print("lr : {:>6}".format(scheduler.optimizer.state_dict()['param_groups'][0]['lr']))
     iterations.append(epoch)
