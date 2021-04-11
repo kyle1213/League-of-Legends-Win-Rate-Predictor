@@ -1,10 +1,10 @@
 import torch
 import torch.nn as nn
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset
 import json
 import numpy as np
 import matplotlib.pyplot as plt
-
+import math
 
 with open('./data/output2.json') as json_train_file:
     json_train_data = json.load(json_train_file)
@@ -22,8 +22,13 @@ for i in range(len(json_train_data)):
     y_train.append(json_train_array[i][10])
 
 x_train = np.array(x_train)
-x_train = np.reshape(x_train, [40180, 2, 5])
 x_train = x_train / 152
+
+pe = np.array([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
+pe = np.tile(pe, (len(x_train), 1))
+x_train = np.concatenate((x_train, pe), axis=1)
+x_train = np.reshape(x_train, (len(x_train), 2, 10))
+x_train = np.swapaxes(x_train, 2, 1)
 
 for i in range(len(json_train_data)):
     if y_train[i] == 0:
@@ -32,6 +37,7 @@ for i in range(len(json_train_data)):
         y_train[i] = [0, 1]
 
 y_train = np.array(y_train)
+
 
 with open('./data/test.json') as json_test_file:
     json_test_data = json.load(json_test_file)
@@ -49,8 +55,13 @@ for i in range(len(json_test_data)):
     y_test.append(json_test_array[i][10])
 
 x_test = np.array(x_test)
-x_test = np.reshape(x_test, [75, 2, 5])
 x_test = x_test / 152
+
+pe = np.array([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
+pe = np.tile(pe, (len(x_test), 1))
+x_test = np.concatenate((x_test, pe), axis=1)
+x_test = np.reshape(x_test, (len(x_test), 2, 10))
+x_test = np.swapaxes(x_test, 2, 1)
 
 for i in range(len(json_test_data)):
     if y_test[i] == 0:
@@ -85,10 +96,10 @@ cuda = torch.device('cuda')
 class LOL(nn.Module):
     def __init__(self):
         super(LOL, self).__init__()
-        self.matrix_weight_1 = torch.nn.Parameter(torch.randn(5, 1).cuda())
+        self.matrix_weight_1 = torch.nn.Parameter(torch.randn(5, 100).cuda())
         self.matrix_weight_2 = torch.nn.Parameter(torch.randn(2, 1).cuda())
         #use torch.bmm
-        self.layer1 = nn.Sequential(nn.Linear(10, 128),
+        self.layer1 = nn.Sequential(nn.Linear(100, 128),
                                     nn.ReLU(),
                                     nn.Dropout(),
                                     nn.BatchNorm1d(128),
@@ -119,6 +130,11 @@ class LOL(nn.Module):
                                     nn.Linear(256, 2))
 
     def forward(self, x):
+        x = torch.matmul(x, self.matrix_weight_1)
+        tmp_x = torch.transpose(x, 2, 1)
+        x = torch.matmul(tmp_x, self.matrix_weight_2)
+        x = torch.squeeze(x)
+        """
         reshaped_x_1 = torch.matmul(x, self.matrix_weight_1)
         tmp_x = torch.transpose(x, 2, 1)
         reshaped_x_2 = torch.matmul(tmp_x, self.matrix_weight_2)
@@ -127,6 +143,7 @@ class LOL(nn.Module):
         x_2 = x * reshaped_x_2
         x = x_1 + x_2
         x = torch.reshape(x, [-1, 10])
+        """
         """
         x = torch.reshape(x, [-1, 10])
         reshaped_x_1 = torch.squeeze(reshaped_x_1)
