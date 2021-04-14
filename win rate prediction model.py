@@ -23,8 +23,8 @@ for i in range(len(json_train_data)):
 
 x_train = np.array(x_train)
 x_train = x_train / 152
-pe = np.array([0.1, 0.2, 0.3, 0.4, 0.5, -0.1, -0.2, -0.3, -0.4, -0.5])
-x_train = x_train * pe
+pe = np.array([0.2, 0.4, 0.6, 0.8, 1, -0.2, -0.4, -0.6, -0.8, -1])
+x_train = x_train + pe
 """
 pe = np.array([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
 pe = np.tile(pe, (len(x_train), 1))
@@ -58,8 +58,8 @@ for i in range(len(json_test_data)):
 
 x_test = np.array(x_test)
 x_test = x_test / 152
-pe = np.array([0.1, 0.2, 0.3, 0.4, 0.5, -0.1, -0.2, -0.3, -0.4, -0.5])
-x_test = x_test * pe
+pe = np.array([0.2, 0.4, 0.6, 0.8, 1, -0.2, -0.4, -0.6, -0.8, -1])
+x_test = x_test + pe
 """
 pe = np.array([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
 pe = np.tile(pe, (len(x_test), 1))
