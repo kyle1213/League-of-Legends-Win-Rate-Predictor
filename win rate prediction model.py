@@ -25,6 +25,7 @@ x_train = np.array(x_train)
 x_train = x_train / 152
 pe = np.array([0.2, 0.4, 0.6, 0.8, 1, -0.2, -0.4, -0.6, -0.8, -1])
 x_train = x_train + pe
+x_train = np.reshape(x_train, (-1, 10, 1))
 """
 pe = np.array([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
 pe = np.tile(pe, (len(x_train), 1))
@@ -60,6 +61,7 @@ x_test = np.array(x_test)
 x_test = x_test / 152
 pe = np.array([0.2, 0.4, 0.6, 0.8, 1, -0.2, -0.4, -0.6, -0.8, -1])
 x_test = x_test + pe
+x_test = np.reshape(x_test, (-1, 10, 1))
 """
 pe = np.array([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
 pe = np.tile(pe, (len(x_test), 1))
@@ -100,39 +102,57 @@ cuda = torch.device('cuda')
 class LOL(nn.Module):
     def __init__(self):
         super(LOL, self).__init__()
-        self.matrix_weight = torch.nn.Parameter(torch.randn(128, 10, 2).cuda())
+        self.softmax = torch.nn.Softmax(dim=1)
+        self.Wq1 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wk1 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wv1 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wo1 = torch.nn.Parameter(torch.randn(16, 1).cuda())
+        self.Wq2 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wk2 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wv2 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wo2 = torch.nn.Parameter(torch.randn(16, 1).cuda())
         self.layer1 = nn.Sequential(nn.Linear(10, 128),
-                                    nn.ReLU(),
-                                    nn.Dropout(),
                                     nn.BatchNorm1d(128),
+                                    nn.ReLU(),
+                                    nn.Dropout(),
                                     nn.Linear(128, 256),
-                                    nn.ReLU(),
-                                    nn.Dropout(),
                                     nn.BatchNorm1d(256),
-                                    nn.Linear(256, 512),
                                     nn.ReLU(),
                                     nn.Dropout(),
-                                    nn.BatchNorm1d(512),
-                                    nn.Linear(512, 1024),
+                                    nn.Linear(256, 10))
+        self.layer2 = nn.Sequential(nn.Linear(10, 128),
+                                    nn.BatchNorm1d(128),
                                     nn.ReLU(),
                                     nn.Dropout(),
-                                    nn.BatchNorm1d(1024),
-                                    nn.Linear(1024, 1024),
-                                    nn.ReLU(),
-                                    nn.Dropout(),
-                                    nn.BatchNorm1d(1024),
-                                    nn.Linear(1024, 512),
-                                    nn.ReLU(),
-                                    nn.Dropout(),
-                                    nn.BatchNorm1d(512),
-                                    nn.Linear(512, 256),
-                                    nn.ReLU(),
-                                    nn.Dropout(),
+                                    nn.Linear(128, 256),
                                     nn.BatchNorm1d(256),
+                                    nn.ReLU(),
+                                    nn.Dropout(),
                                     nn.Linear(256, 2))
 
     def forward(self, x):
+        Q1 = torch.matmul(x, self.Wq1)
+        K1 = torch.matmul(x, self.Wk1)
+        K1 = torch.transpose(K1, 2, 1)
+        V1 = torch.matmul(x, self.Wv1)
+        attention = torch.bmm(Q1, K1)
+        attention = self.softmax(attention/math.sqrt(16))
+        attention = torch.bmm(attention, V1)
+        x = torch.matmul(attention, self.Wo1)
+        x = x.squeeze()
         x = self.layer1(x)
+
+        x = torch.reshape(x, (-1, 10, 1))
+        Q2 = torch.matmul(x, self.Wq2)
+        K2 = torch.matmul(x, self.Wk2)
+        K2 = torch.transpose(K2, 2, 1)
+        V2 = torch.matmul(x, self.Wv2)
+        attention = torch.bmm(Q2, K2)
+        attention = self.softmax(attention / math.sqrt(16))
+        attention = torch.bmm(attention, V2)
+        x = torch.matmul(attention, self.Wo2)
+        x = x.squeeze()
+        x = self.layer2(x)
         return x
 
 
