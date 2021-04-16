@@ -9,6 +9,8 @@ Limits : data input size was only 10(I think it's too small to predict something
 What I've tried : added batch normalization, dropout, input regularization, changed input shape(not size the style(?)), tried to use shortcut method but failed to apply, positional encoding
 
 LOGs
+2021 04 17 : Added multi head attention module, results seems similar with below.
+
 2021 04 16 : Added single head attention module and reduced depth of fully connected layer. Test accuracy was always 41.33% before(75 test sets(31 A class, 44 B class), 31/75 = 41.33) but changed to 52%, sometimes 43.xx%. Attention module seems to work but performance was not very good(But mutch better I think)
 
 2021 04 14 : Changed model back to original method(normal MLP) but added positional encoding to input vector(array). Didn't used same positional encoding from Transformer but added [0.1, 0.2, ... , 0.9, 1.0] or [0,1, 0,2, 0,3, 0.4, 0.5, -0.1, -0.2, ... , -0.5]. Both didn't work well.
