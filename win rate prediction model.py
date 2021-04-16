@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset
+from torchsummary import summary as summary_
 import json
 import numpy as np
 import matplotlib.pyplot as plt
@@ -103,23 +104,27 @@ class LOL(nn.Module):
     def __init__(self):
         super(LOL, self).__init__()
         self.softmax = torch.nn.Softmax(dim=1)
-        self.Wq1 = torch.nn.Parameter(torch.randn(1, 16).cuda())
-        self.Wk1 = torch.nn.Parameter(torch.randn(1, 16).cuda())
-        self.Wv1 = torch.nn.Parameter(torch.randn(1, 16).cuda())
-        self.Wo1 = torch.nn.Parameter(torch.randn(16, 1).cuda())
-        self.Wq2 = torch.nn.Parameter(torch.randn(1, 16).cuda())
-        self.Wk2 = torch.nn.Parameter(torch.randn(1, 16).cuda())
-        self.Wv2 = torch.nn.Parameter(torch.randn(1, 16).cuda())
-        self.Wo2 = torch.nn.Parameter(torch.randn(16, 1).cuda())
+        self.Wq11 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wk11 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wv11 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wq12 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wk12 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wv12 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wo1 = torch.nn.Parameter(torch.randn(16 * 2, 1).cuda())
+        self.Wq21 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wk21 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wv21 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wq22 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wk22 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wv22 = torch.nn.Parameter(torch.randn(1, 16).cuda())
+        self.Wo2 = torch.nn.Parameter(torch.randn(16 * 2, 1).cuda())
         self.layer1 = nn.Sequential(nn.Linear(10, 128),
                                     nn.BatchNorm1d(128),
                                     nn.ReLU(),
                                     nn.Dropout(),
-                                    nn.Linear(128, 256),
-                                    nn.BatchNorm1d(256),
-                                    nn.ReLU(),
-                                    nn.Dropout(),
-                                    nn.Linear(256, 10))
+                                    nn.Linear(128, 10),
+                                    nn.BatchNorm1d(10),
+                                    nn.ReLU())
         self.layer2 = nn.Sequential(nn.Linear(10, 128),
                                     nn.BatchNorm1d(128),
                                     nn.ReLU(),
@@ -131,25 +136,41 @@ class LOL(nn.Module):
                                     nn.Linear(256, 2))
 
     def forward(self, x):
-        Q1 = torch.matmul(x, self.Wq1)
-        K1 = torch.matmul(x, self.Wk1)
-        K1 = torch.transpose(K1, 2, 1)
-        V1 = torch.matmul(x, self.Wv1)
-        attention = torch.bmm(Q1, K1)
-        attention = self.softmax(attention/math.sqrt(16))
-        attention = torch.bmm(attention, V1)
+        Q11 = torch.matmul(x, self.Wq11)
+        K11 = torch.matmul(x, self.Wk11)
+        K11 = torch.transpose(K11, 2, 1)
+        V11 = torch.matmul(x, self.Wv11)
+        attention1 = torch.bmm(Q11, K11)
+        attention1 = self.softmax(attention1/math.sqrt(16))
+        attention1 = torch.bmm(attention1, V11)
+        Q12 = torch.matmul(x, self.Wq12)
+        K12 = torch.matmul(x, self.Wk12)
+        K12 = torch.transpose(K12, 2, 1)
+        V12 = torch.matmul(x, self.Wv12)
+        attention2 = torch.bmm(Q12, K12)
+        attention2 = self.softmax(attention2 / math.sqrt(16))
+        attention2 = torch.bmm(attention2, V12)
+        attention = torch.cat((attention1, attention2), dim=2)
         x = torch.matmul(attention, self.Wo1)
         x = x.squeeze()
         x = self.layer1(x)
 
         x = torch.reshape(x, (-1, 10, 1))
-        Q2 = torch.matmul(x, self.Wq2)
-        K2 = torch.matmul(x, self.Wk2)
-        K2 = torch.transpose(K2, 2, 1)
-        V2 = torch.matmul(x, self.Wv2)
-        attention = torch.bmm(Q2, K2)
-        attention = self.softmax(attention / math.sqrt(16))
-        attention = torch.bmm(attention, V2)
+        Q21 = torch.matmul(x, self.Wq21)
+        K21 = torch.matmul(x, self.Wk21)
+        K21 = torch.transpose(K21, 2, 1)
+        V21 = torch.matmul(x, self.Wv21)
+        attention1 = torch.bmm(Q21, K21)
+        attention1 = self.softmax(attention1 / math.sqrt(16))
+        attention1 = torch.bmm(attention1, V21)
+        Q22 = torch.matmul(x, self.Wq22)
+        K22 = torch.matmul(x, self.Wk22)
+        K22 = torch.transpose(K22, 2, 1)
+        V22 = torch.matmul(x, self.Wv22)
+        attention2 = torch.bmm(Q22, K22)
+        attention2 = self.softmax(attention2 / math.sqrt(16))
+        attention2 = torch.bmm(attention2, V22)
+        attention = torch.cat((attention1, attention2), dim=2)
         x = torch.matmul(attention, self.Wo2)
         x = x.squeeze()
         x = self.layer2(x)
@@ -168,6 +189,11 @@ iterations = []
 train_losses = []
 train_acc = []
 
+summary_(model, (10, 1), batch_size=1)
+torch.save(model.state_dict(), './model.pt')
+for name, param in model.named_parameters():
+    if param.requires_grad:
+        print(name, type(param.data), param.size())
 
 for epoch in range(1000):
     model.train()
@@ -211,7 +237,7 @@ plt.plot(range(1, len(iterations)+1), train_acc, 'b-')
 plt.title('loss and accuracy')
 plt.show()
 
-
+torch.save(model.state_dict(), './model.pt')
 """
 from keras.models import Sequential
 from keras.layers import Dense
