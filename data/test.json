@@ -1,0 +1,377 @@
+[
+    {
+        "_id": 4549462049,
+        "array": [ 129, 55, 4, 15, 84, 24, 60, 146, 112, 9, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4548963362,
+        "array": [ 54, 5, 89, 61, 137, 17, 115, 38, 148, 149, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4548936158,
+        "array": [ 10, 129, 116, 123, 93, 77, 58, 4, 48, 78, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4548231003,
+        "array": [ 81, 129, 75, 112, 135, 54, 60, 134, 72, 125, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4547244142,
+        "array": [ 106, 20, 89, 22, 115, 50, 88, 38, 72, 49, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4547183231,
+        "array": [ 66, 101, 39, 37, 84, 116, 70, 50, 112, 93, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4547180917,
+        "array": [ 132, 118, 8, 48, 137, 50, 131, 38, 148, 149, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4544654247,
+        "array": [ 53, 20, 39, 72, 93, 32, 88, 80, 126, 149, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4544612366,
+        "array": [ 119, 122, 4, 121, 59, 114, 28, 87, 82, 98, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4544580428,
+        "array": [ 151, 60, 48, 110, 43, 69, 88, 3, 15, 78, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4544507261,
+        "array": [ 41, 129, 51, 22, 25, 53, 146, 39, 48, 40, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4544464093,
+        "array": [ 39, 5, 7, 22, 143, 103, 56, 65, 72, 142, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4544429909,
+        "array": [ 83, 67, 39, 22, 78, 81, 32, 3, 72, 37, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4542444497,
+        "array": [ 128, 115, 146, 48, 49, 24, 60, 13, 61, 84, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4542412143,
+        "array": [ 119, 60, 39, 72, 16, 152, 88, 116, 48, 137, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4542356023,
+        "array": [ 103, 146, 69, 123, 43, 75, 32, 39, 22, 16, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4541425142,
+        "array": [ 91, 101, 110, 112, 44, 151, 129, 38, 126, 49, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4540741285,
+        "array": [ 76, 55, 13, 22, 78, 27, 122, 107, 126, 71, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4540658008,
+        "array": [ 103, 52, 87, 72, 3, 61, 60, 75, 48, 49, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4540644538,
+        "array": [ 63, 88, 38, 148, 93, 66, 122, 105, 112, 85, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4540641294,
+        "array": [ 96, 33, 38, 21, 137, 81, 46, 129, 72, 49, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4537956917,
+        "array": [ 66, 24, 39, 82, 137, 50, 60, 129, 141, 149, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4533140702,
+        "array": [ 102, 146, 110, 121, 26, 6, 115, 38, 148, 37, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4532884791,
+        "array": [ 75, 30, 116, 22, 12, 114, 115, 4, 82, 125, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4532858458,
+        "array": [ 54, 115, 38, 48, 49, 6, 55, 76, 123, 149, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4530250760,
+        "array": [ 119, 60, 143, 22, 151, 39, 115, 108, 48, 142, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4529967415,
+        "array": [ 36, 60, 71, 112, 137, 83, 67, 4, 22, 35, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4529789220,
+        "array": [ 51, 101, 39, 112, 142, 58, 32, 7, 72, 16, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4529741258,
+        "array": [ 90, 60, 87, 112, 125, 151, 28, 4, 22, 78, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4529603658,
+        "array": [ 102, 139, 4, 18, 93, 151, 129, 42, 148, 120, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4529474680,
+        "array": [ 119, 20, 134, 126, 98, 65, 55, 38, 72, 49, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4521060883,
+        "array": [ 2, 101, 119, 123, 137, 80, 60, 39, 112, 93, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4521025852,
+        "array": [ 132, 129, 71, 22, 151, 119, 58, 4, 112, 93, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4520962489,
+        "array": [ 73, 88, 4, 126, 142, 119, 131, 85, 123, 25, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4520907760,
+        "array": [ 96, 20, 39, 144, 98, 50, 101, 62, 112, 47, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4520934706,
+        "array": [ 38, 19, 58, 22, 125, 63, 32, 71, 112, 98, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4520863212,
+        "array": [ 17, 60, 4, 123, 137, 50, 32, 38, 22, 98, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4520367400,
+        "array": [ 50, 56, 132, 122, 49, 126, 146, 80, 72, 25, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4519348555,
+        "array": [ 100, 30, 38, 22, 142, 102, 86, 57, 116, 125, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4519285997,
+        "array": [ 119, 20, 4, 126, 49, 11, 115, 57, 116, 50, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4519236715,
+        "array": [ 119, 101, 38, 148, 26, 151, 88, 7, 92, 84, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4519165767,
+        "array": [ 39, 122, 7, 21, 125, 86, 69, 20, 22, 78, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4518979449,
+        "array": [ 138, 32, 146, 48, 111, 81, 139, 4, 144, 44, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4518647602,
+        "array": [ 73, 60, 39, 22, 137, 145, 67, 52, 72, 135, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4518654190,
+        "array": [ 146, 24, 4, 61, 137, 73, 101, 38, 22, 135, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4518559360,
+        "array": [ 73, 90, 4, 61, 43, 83, 69, 13, 72, 98, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4518565976,
+        "array": [ 76, 139, 4, 72, 26, 77, 60, 129, 126, 137, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4518535801,
+        "array": [ 132, 20, 4, 22, 69, 81, 146, 116, 144, 125, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4518511007,
+        "array": [ 58, 60, 39, 148, 98, 17, 88, 119, 112, 142, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4518415351,
+        "array": [ 58, 55, 84, 126, 151, 50, 60, 4, 148, 98, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4518336351,
+        "array": [ 23, 67, 71, 121, 143, 53, 32, 4, 72, 125, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4517710564,
+        "array": [ 50, 60, 4, 63, 149, 73, 88, 54, 48, 125, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4515829735,
+        "array": [ 53, 88, 126, 48, 93, 75, 60, 85, 72, 49, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4515745927,
+        "array": [ 90, 101, 7, 126, 43, 81, 60, 110, 72, 93, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4515539026,
+        "array": [ 102, 56, 97, 112, 78, 54, 60, 79, 126, 93, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4515533283,
+        "array": [ 90, 60, 62, 22, 47, 76, 56, 7, 72, 25, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4515436989,
+        "array": [ 103, 30, 51, 82, 98, 119, 60, 38, 22, 135, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4515402153,
+        "array": [ 130, 129, 52, 123, 43, 76, 60, 39, 141, 98, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4515295956,
+        "array": [ 83, 67, 4, 148, 98, 81, 32, 8, 141, 14, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4515350287,
+        "array": [ 81, 9, 127, 72, 78, 73, 115, 98, 29, 3, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4573017211,
+        "array": [ 54, 60, 105, 72, 85, 14, 2, 110, 22, 125, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4572982110,
+        "array": [ 105, 60, 76, 125, 43, 8, 55, 98, 48, 16, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4572918177,
+        "array": [ 141, 146, 13, 48, 43, 58, 100, 105, 125, 22, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4572952504,
+        "array": [ 76, 131, 116, 126, 50, 151, 152, 72, 63, 25, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4572798027,
+        "array": [ 151, 139, 105, 72, 43, 152, 60, 75, 112, 93, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4572755481,
+        "array": [ 54, 109, 129, 148, 43, 69, 90, 105, 48, 25, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4572596131,
+        "array": [ 58, 28, 105, 144, 78, 54, 20, 71, 84, 37, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4572560546,
+        "array": [ 96, 115, 105, 126, 125, 119, 55, 62, 72, 149, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4572463853,
+        "array": [ 54, 60, 105, 18, 35, 69, 88, 47, 72, 43, 0 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4572445819,
+        "array": [ 77, 88, 130, 72, 43, 76, 46, 105, 48, 1, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4571766132,
+        "array": [ 102, 100, 87, 126, 71, 119, 60, 105, 112, 16, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4571761262,
+        "array": [ 119, 91, 105, 22, 142, 73, 60, 87, 48, 98, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4571684568,
+        "array": [ 75, 2, 150, 21, 71, 102, 100, 63, 72, 93, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4571129982,
+        "array": [ 103, 109, 146, 126, 135, 75, 118, 51, 18, 151, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    },
+    {
+        "_id": 4571102152,
+        "array": [ 75, 88, 11, 61, 137, 6, 151, 146, 72, 135, 1 ],
+        "_class": "DataCollection.domain.Final_result"
+    }
+]
